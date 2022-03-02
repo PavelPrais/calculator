@@ -14,24 +14,36 @@ function getNumber2() {
   return Number(input2.value);
 }
 
-function onButtonPlusClick() {
-  var result = getNumber1() + getNumber2();
+function makeOperation(operationCode) {
+  if (operationCode === '+') {
+    var result = getNumber1() + getNumber2();
+  } else if (operationCode === '-') {
+    var result = getNumber1() - getNumber2();
+  } else if (operationCode === '*') {
+    var result = getNumber1() * getNumber2();
+  } else if (operationCode === '/') {
+    var result = getNumber1() / getNumber2();
+  } else {
+    window.alert('operation is unknown')
+  }
+
   window.alert(result);
+}
+
+function onButtonPlusClick() {
+  makeOperation('+');
 };
 
 function onButtonMinusClick() {
-  var result = getNumber1() - getNumber2();
-  window.alert(result);
+  makeOperation('-');
 };
 
 function onButtonMultiplyClick() {
-  var result = getNumber1() * getNumber2();
-  window.alert(result);
+  makeOperation('*');
 };
 
 function onButtonDevideClick() {
-  var result = getNumber1() / getNumber2();
-  window.alert(result);
+  makeOperation('/');
 };
 
 buttonPlus.addEventListener('click', onButtonPlusClick);
